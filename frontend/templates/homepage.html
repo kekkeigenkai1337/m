@@ -1,0 +1,312 @@
+{% extends "base.html" %}
+
+{% block title %}Главная - СтройДом{% endblock %}
+
+{% block content %}
+<style>
+   .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+  }
+
+  .section h2 {
+    font-size: 28px;
+    color: #cc0000;
+    margin-bottom: 20px;
+  }
+
+  /* ---------- Блок "О нас" ---------- */
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .about-text {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .about-images {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .about-images img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+  }
+
+  .about-images img:nth-child(2) {
+    transform: rotate(2deg);
+    margin-top: 20px;
+  }
+
+  /* ---------- Блок "Наши услуги" ---------- */
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .services-text {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .services-text p {
+    margin-bottom: 16px;
+  }
+
+  .services-text a {
+    display: inline-block;
+    background-color: #cc0000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .products-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 16px;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  /* ---------- Блок "Патенты" ---------- */
+  .patents {
+    text-align: center;
+  }
+
+  .patent-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .patent {
+    background: white;
+    border-radius: 16px;
+    padding: 16px;
+    width: 200px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  }
+
+  .patent img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+
+  .patent a {
+    display: inline-block;
+    background-color: #cc0000;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+  }
+
+  @media (max-width: 700px) {
+    .about, .services {
+      flex-direction: column;
+    }
+  }
+</style>
+
+<!-- Блок 1: О нас -->
+<style>
+  .about {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .about-text {
+    flex: 1;
+    min-width: 260px;
+  }
+
+  .about-images {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .about-images img {
+    width: 40%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: rotate(-2deg);
+  }
+
+  .about-images img:nth-child(2) {
+    transform: rotate(2deg);
+    margin-top: 20px;
+  }
+
+</style>
+<section class="section">
+  <div class="about">
+    <div class="about-text">
+      <h2>О нас</h2>
+      <p>
+        «СтройДом» — это надёжность, опыт и современные решения для строительства. Мы предлагаем качественные станки и сервис по всей России.
+      </p>
+      <p>
+        «СтройДом» — это надёжность, опыт и современные решения для строительства. Мы предлагаем качественные станки и сервис по всей России.
+      </p>
+      <p>
+        «СтройДом» — это надёжность, опыт и современные решения для строительства. Мы предлагаем качественные станки и сервис по всей России.
+      </p>
+    </div>
+    <div class="about-images">
+      <img src="../static/homepage/photo1.png" alt="Фото 1">
+      <img src="../static/homepage/photo2.png" alt="Фото 2">
+      <img src="../static/homepage/photo3.png" alt="Фото 3">
+    </div>
+  </div>
+</section>
+
+<!-- Блок 2: Наши услуги -->
+<style>
+  .services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+  }
+
+  .services-wrapper {
+  background-color: #ffffff;
+  padding: 40px 10px;
+  }
+
+  .services-text {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .services-text p {
+    margin-bottom: 16px;
+  }
+
+  .services-text a {
+    display: inline-block;
+    background-color: #cc0000;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
+  .products-grid {
+    flex: 2;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .product-card {
+    background: white;
+    border-radius: 16px;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+</style>
+<section class="services-wrapper">
+  <div class="services">
+    <div class="services-text">
+      <h2>Наши услуги</h2>
+      <p>Мы предоставляем оборудование для частных строек и крупных компаний. Всё — с гарантией и доставкой.</p>
+      <p>Мы предоставляем оборудование для частных строек и крупных компаний. Всё — с гарантией и доставкой.</p>
+      <p>Мы предоставляем оборудование для частных строек и крупных компаний. Всё — с гарантией и доставкой.</p>
+      <p>Мы предоставляем оборудование для частных строек и крупных компаний. Всё — с гарантией и доставкой.</p>
+
+      <a href="/products">Полный ассортимент</a>
+    </div>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="../static/homepage/photo4.png" alt="Товар 1">
+        <div>Товар 1</div>
+      </div>
+      <div class="product-card">
+        <img src="../static/homepage/photo5.png" alt="Товар 2">
+        <div>Товар 2</div>
+      </div>
+      <div class="product-card">
+        <img src="../static/homepage/photo6.png" alt="Товар 3">
+        <div>Товар 3</div>
+      </div>
+      <div class="product-card">
+        <img src="../static/homepage/photo7.png" alt="Товар 4">
+        <div>Товар 4</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Блок 3: Патенты -->
+<section class="section">
+  <div class="patents">
+    <h2>Патенты</h2>
+    <div class="patent-grid">
+      <div class="patent">
+        <img src="../static/homepage/doc.png" alt="Патент 1">
+        <a href="../static/homepage/пр8.pdf" target="_blank">Открыть</a>
+      </div>
+      <div class="patent">
+        <img src="../static/homepage/doc.png" alt="Патент 2">
+        <a href="../static/homepage/пр8.pdf" target="_blank">Открыть</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

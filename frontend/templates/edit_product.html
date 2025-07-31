@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Редактировать товар{% endblock %}
+
+{% block content %}
+<h2>Редактировать товар</h2>
+
+<form action="/admin/edit-product/{{ product.id }}" method="post" enctype="multipart/form-data">
+  <label>Название:</label><br>
+  <input type="text" name="name" value="{{ product.name }}"><br><br>
+
+  <label>Описание:</label><br>
+  <textarea name="description" rows="5">{{ product.description }}</textarea><br><br>
+
+  <label>Добавить изображения:</label><br>
+  <input type="file" name="new_images" multiple><br><br>
+
+  <h3>Текущие изображения:</h3>
+  <div class="existing-images" style="display: flex; flex-wrap: wrap; gap: 16px;">
+    {% for image in product.images %}
+      <div class="image-box" style="text-align: center;">
+        <img src="{{ image.url }}" alt="" style="height: 100px; display: block; margin-bottom: 4px;">
+        <label style="font-size: 14px;">
+          <input type="checkbox" name="delete_images" value="{{ image.id }}"> Удалить
+        </label>
+      </div>
+    {% endfor %}
+  </div>
+
+  <br>
+  <button type="submit">Сохранить</button>
+</form>
+
+<br>
+<a href="/admin/products">← Назад</a>
+{% endblock %}

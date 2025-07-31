@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Управление товарами{% endblock %}
+
+{% block content %}
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+    <h2>Товары</h2>
+    <a href="/admin/add-product" style="
+      background-color: #cc0000;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    ">Добавить товар</a>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+    {% for product in products %}
+      <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+        <img src="{{ product.images[0].url if product.images else '../static/placeholder.png' }}" alt="Товар" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-bottom: 12px;">
+        <h3>{{ product.name }}</h3>
+        <div style="display: flex; gap: 8px; margin-top: 12px;">
+          <a href="/admin/edit-product/{{ product.id }}" style="padding: 6px 10px; background-color: #ff9900; color: white; border-radius: 6px; text-decoration: none;">Редактировать</a>
+          <form action="/admin/delete-product/{{ product.id }}" method="post" onsubmit="return confirm('Удалить товар?')">
+            <button type="submit" style="padding: 6px 10px; background-color: #990000; color: white; border: none; border-radius: 6px; cursor: pointer;">Удалить</button>
+          </form>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endblock %}

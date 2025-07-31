@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Добавить товар{% endblock %}
+
+{% block content %}
+  <h2 style="margin-bottom: 20px;">Добавить товар</h2>
+
+  <form action="/admin/add-product" method="post" enctype="multipart/form-data" style="display: flex; flex-direction: column; gap: 16px; max-width: 600px;">
+    <label>
+      Название:
+      <input type="text" name="name" required style="width: 100%; padding: 8px;">
+    </label>
+
+    <label>
+      Описание:
+      <textarea name="description" rows="5" required style="width: 100%; padding: 8px;"></textarea>
+    </label>
+
+    <label>
+      Фото:
+      <input type="file" name="images" multiple accept="image/*" required>
+    </label>
+
+    <button type="submit" style="padding: 10px 16px; background-color: #cc0000; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">Добавить</button>
+  </form>
+{% endblock %}

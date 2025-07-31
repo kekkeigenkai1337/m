@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+  <div class="product-page">
+    <div class="left">
+      <!-- Галерея слайдер -->
+      <div class="swiper-container-wrapper">
+        <div class="swiper">
+          <div class="swiper-wrapper">
+            {% for image in product.images %}
+              <div class="swiper-slide">
+                <img src="{{ image.url }}" alt="{{ product.name }}">
+              </div>
+            {% endfor %}
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="right">
+      <h2>{{ product.name }}</h2>
+      <p>{{ product.description }}</p>
+
+      <div class="order-box">
+        <h3>Заказать</h3>
+        <p>Для получения подробной информации и заказа, пожалуйста, свяжитесь с нами</p>
+        <a href="/contacts" class="contact-button">Перейти к контактам</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Swiper стили -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+  <!-- Swiper скрипт -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+  <script>
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev'
+      }
+    });
+  </script>
+
+  <style>
+    .product-page {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      padding: 32px 16px;
+    }
+
+    .left {
+      flex: 1 1 500px;
+    }
+
+    .right {
+      flex: 1 1 300px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .swiper-container-wrapper {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 400px;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .swiper-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .order-box {
+      background: #fff6f6;
+      border: 1px solid #f5cccc;
+      padding: 16px;
+      border-radius: 12px;
+    }
+
+    .order-box h3 {
+      margin: 0 0 8px;
+      color: #cc0000;
+    }
+
+    .contact-button {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 10px 18px;
+      background-color: #cc0000;
+      color: white;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    @media screen and (max-width: 768px) {
+      .product-page {
+        flex-direction: column;
+      }
+      .swiper {
+        height: 250px;
+      }
+    }
+  </style>
+{% endblock %}

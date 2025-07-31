@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Контакты — СтройДом{% endblock %}
+
+{% block content %}
+  <div class="contact-card">
+    <h2>Контакты</h2>
+    <div class="field"><strong>Телефон:</strong> +7 (900) 123-45-67</div>
+    <div class="field"><strong>Email:</strong> info@stanki.site</div>
+    <div class="field"><strong>Адрес:</strong> г. Москва, ул. Промышленная, 15</div>
+    <div class="field"><strong>Время работы:</strong> Пн–Пт, 9:00–18:00</div>
+  </div>
+
+  <style>
+    .contact-card {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #cc0000;
+      font-size: 28px;
+      margin-bottom: 16px;
+    }
+    .field {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+  </style>
+{% endblock %}

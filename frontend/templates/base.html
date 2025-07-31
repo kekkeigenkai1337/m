@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}СтройДом{% endblock %}</title>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      margin: 0;
+      background-color: #f8f8f8;
+    }
+
+    header {
+      background-color: rgb(243, 243, 243);
+      padding: 8;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 24px;
+    }
+
+    .left img {
+      height: 40px;
+    }
+
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-name {
+      font-size: 20px;
+      font-family: 'Oswald';
+      font-weight: 800;
+      color: #000000;
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      font-family: 'Oswald';
+      color: #777;
+    }
+
+    .nav {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      height: 100%;
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 20px 0;
+      font-weight: 600;
+      font-size: 20px;
+      transition: background 0.2s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+      border-left: 1px solid #e0e0e0;
+    }
+
+    .nav a:hover {
+      background-color: #f5f5f5;
+    }
+
+    .nav a.assortment {
+      background-color: #c01a1a;
+      color: white;
+    }
+
+    .nav a.assortment:hover {
+      background-color: #b30000;
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 16px 24px;
+    }
+
+    .divider {
+      height: 24px;
+      width: 1px;
+      background-color: #ccc;
+    }
+
+    .phone {
+      font-size: 14px;
+      color: #333;
+    }
+
+    main {
+      padding: 24px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        grid-template-columns: 1fr;
+      }
+      
+      .nav {
+        grid-template-columns: 1fr;
+        border-top: 1px solid #e0e0e0;
+      }
+      
+      .nav a {
+        padding: 12px 0;
+        border-left: none;
+        border-bottom: 1px solid #e0e0e0;
+      }
+      
+      .right {
+        justify-content: center;
+        border-top: 1px solid #e0e0e0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="left">
+      <img src="../static/logo.jpg" alt="Логотип">
+      <div class="brand">
+        <div class="brand-name">СтройДом</div>
+        <div class="brand-sub">Строительное оборудование</div>
+      </div>
+    </div>
+
+    <div class="nav">
+      <a href="/">Главная</a>
+      <a href="/products" class="assortment">Ассортимент</a>
+      <a href="/contacts">Контакты</a>
+    </div>
+
+    <div class="right">
+      <div class="divider"></div>
+      <div class="phone">📞 +7 (900) 123-45-67</div>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+</body>
+</html>
